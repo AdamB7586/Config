@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         forceCoversAnnotation="true"
+         beStrictAboutCoversAnnotation="false"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         verbose="true"
+         stderr="true">
+    <testsuite>
+        <directory suffix="Test.php">tests</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter>
+    
+    <logging>
+        <log type="coverage-clover" target="clover.xml" />
+        <log type="coverage-php" target="build/cov/coverage.cov"/>
+    </logging>
+    
+    <php>
+        <var name="hostname" value="127.0.0.1" />
+        <var name="username" value="root" />
+        <var name="password" value="" />
+        <var name="database" value="config_db" />
+        <var name="driver" value="mysql" />
+    </php>
+</phpunit>
